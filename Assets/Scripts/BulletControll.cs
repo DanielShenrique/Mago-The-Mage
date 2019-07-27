@@ -8,7 +8,7 @@ public class BulletControll : MonoBehaviour
 
     private GameObject eCon;
 
-    public int damage;
+    public float damage;
 
     private void Start()
     {

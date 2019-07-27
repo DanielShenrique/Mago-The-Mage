@@ -198,7 +198,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &4340593729745580066
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -237,8 +237,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd8bea32757b1148b4785dc662c3371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 10
-  speed: 5
+  life: 1
+  speed: 7
   weaponPos: {fileID: 5073697174399561683}
   firePos: {fileID: 8941411129286338913}
   bullet: {fileID: 7022563712905602939, guid: 17f60101d19b54a4ab629259c9914953, type: 3}

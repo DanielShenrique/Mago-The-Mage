@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class EnemyControll : MonoBehaviour
 {
-    public int life; 
+    public float life; 
 
-    private int damage;
+    public float damage;
 
     private float speedE;
 
@@ -25,7 +25,7 @@ public class EnemyControll : MonoBehaviour
        
         text = GameObject.Find("[Placar]_Pontuacao").GetComponent<Text>();
 
-        damage = 1;
+        damage = 0.1f;
 
         speedE = 5f;
     }
@@ -45,7 +45,7 @@ public class EnemyControll : MonoBehaviour
         }    
     }
 
-    public void EnemyTakeDamage(int damage)
+    public void EnemyTakeDamage(float damage)
     {
         life -= damage;
         if(life <= 0)

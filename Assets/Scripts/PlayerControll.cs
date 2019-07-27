@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControll : MonoBehaviour
 {
-    public int life;
+
+    public float life;
 
     public float speed;
     private float offset;
@@ -19,16 +21,18 @@ public class PlayerControll : MonoBehaviour
     [SerializeField]
     private GameObject bullet;
 
+    private Image hearth;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        hearth = GameObject.Find("[Hearth]_Vida").GetComponent<Image>();
     }
 
     private void Start()
     {
         offset = -90f;
-
-        life = 1;
     }
 
     private void Update()
@@ -43,17 +47,35 @@ public class PlayerControll : MonoBehaviour
 
     private void Walk()
     {
-        float h = Input.GetAxisRaw("Horizontal") * speed;
-        float v = Input.GetAxisRaw("Vertical") * speed;
+        float moveX = 0;
+        float moveY = 0;
 
-        Vector2 mov = new Vector2(h, v);
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
+            moveY = +1f;
+        }
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        {
+            moveY = -1f;
+        }
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            moveX = +1f;
+        }
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            moveX = -1f;
+        }
 
-        rb.velocity = mov;
+        Vector2 moveDir = new Vector2(moveX,moveY).normalized;
+        rb.velocity = moveDir * speed;
     }
 
-    public void PlayerTakeDamage(int damage)
+    public void PlayerTakeDamage(float damage)
     {
         life -= damage;
+
+        hearth.fillAmount = life;
 
         if(life <= 0) { Destroy(gameObject); }
     }
