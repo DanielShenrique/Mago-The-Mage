@@ -9,25 +9,25 @@ public class EnemyControll : MonoBehaviour
 
     public float damage;
 
-    private float speedE;
+    private float speed;
 
     private Text text;
 
-    private PlayerControll player;
+    private GameObject player;
+
 
     private Transform playerT;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControll>();
-        playerT = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        player = GameObject.FindGameObjectWithTag("Player");
        
         text = GameObject.Find("[Placar]_Pontuacao").GetComponent<Text>();
 
         damage = 0.1f;
 
-        speedE = 5f;
+        speed = 5f;
     }
 
     // Update is called once per frame
@@ -41,7 +41,7 @@ public class EnemyControll : MonoBehaviour
     {
         if (playerT != null)
         {
-            transform.position = Vector2.MoveTowards(transform.position, playerT.position, speedE * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, player.GetComponent<Transform>().position, speed * Time.deltaTime);
         }    
     }
 
@@ -61,7 +61,7 @@ public class EnemyControll : MonoBehaviour
         {
             if (player != null)
             {
-                player.PlayerTakeDamage(damage);
+                player.GetComponent<PlayerControll>().PlayerTakeDamage(damage);
                 Destroy(gameObject);
             }
         }

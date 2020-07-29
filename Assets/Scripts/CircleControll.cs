@@ -26,10 +26,10 @@ public class CircleControll : MonoBehaviour
 
     private void Update()
     {
-        Rotation();
+        RotationCircle();
     }
 
-    void Rotation()
+    void RotationCircle()
     {
         posX = rotCenter.position.x + Mathf.Cos(ang) * rotRadius;
         posY = rotCenter.position.y + Mathf.Sin(ang) * rotRadius;

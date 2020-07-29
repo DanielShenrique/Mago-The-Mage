@@ -6,7 +6,7 @@ public class BulletControll : MonoBehaviour
 {
     private float bulletSpeed;
 
-    private GameObject eCon;
+    private GameObject enemy;
 
     public float damage;
 
@@ -29,8 +29,8 @@ public class BulletControll : MonoBehaviour
     {
         if (coll.gameObject.CompareTag("Enemy"))
         {
-            eCon = coll.gameObject;
-            eCon.GetComponent<EnemyControll>().EnemyTakeDamage(damage);
+            enemy = coll.gameObject;
+            enemy.GetComponent<EnemyControll>().EnemyTakeDamage(damage);
             Destroy(gameObject);
         }
     }
