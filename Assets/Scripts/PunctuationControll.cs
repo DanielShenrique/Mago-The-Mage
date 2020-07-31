@@ -9,13 +9,11 @@ public class PunctuationControll : MonoBehaviour
 
     public Text text;
 
-    // Start is called before the first frame update
     void Start()
     {
         punt = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
         text.GetComponent<Text>().text = punt.ToString();

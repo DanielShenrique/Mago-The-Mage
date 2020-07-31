@@ -55,3 +55,6 @@ TagManager:
   - name: Houses
     uniqueID: 2642322199
     locked: 0
+  - name: UI
+    uniqueID: 1771401917
+    locked: 0

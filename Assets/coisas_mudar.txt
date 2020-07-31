@@ -1,0 +1,8 @@
+--Ajustar as colisões--
+Ajustar o spaw :
+Melhorar a UI:
+Melhorar os inimigos :
+Fazer sistema de save 
+Fazer sistema de main menu
+Melhorar o background do jogo
+Ajustar um monte de coisa /

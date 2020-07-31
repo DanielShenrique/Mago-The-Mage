@@ -13,21 +13,24 @@ public class PlayerControll : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    [SerializeField]
-    private Transform weaponPos;
-    [SerializeField]
-    private Transform firePos;
-
-    [SerializeField]
-    private GameObject bullet;
+    [SerializeField]private Transform weaponPos;
+    [SerializeField]private Transform firePos;
+    [SerializeField]private GameObject bullet;
 
     private Image hearth;
+    private Text UITextlife;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
 
-        hearth = GameObject.Find("[Hearth]_Vida").GetComponent<Image>();
+        if (hearth == null)
+        {
+            hearth = GameObject.Find("[Hearth]_Vida").GetComponent<Image>();
+        }
+
+        UITextlife = GameObject.Find("[Texto]_Vida").GetComponent<Text>();
+
     }
 
     private void Start()
@@ -67,7 +70,7 @@ public class PlayerControll : MonoBehaviour
             moveX = -1f;
         }
 
-        Vector2 moveDir = new Vector2(moveX,moveY).normalized;
+        Vector2 moveDir = new Vector2(moveX, moveY).normalized;
         rb.velocity = moveDir * speed;
     }
 
@@ -75,9 +78,18 @@ public class PlayerControll : MonoBehaviour
     {
         life -= damage;
 
-        hearth.fillAmount = life;
+        if (hearth != null)
+        {
+            hearth.fillAmount = life;
+        }
 
-        if(life <= 0) { Destroy(gameObject); }
+
+        if (life <= 0)
+        {
+            UITextlife.enabled = false;
+            Time.timeScale = 0;
+            Destroy(gameObject);
+        }
     }
 
     private void Shoot()
