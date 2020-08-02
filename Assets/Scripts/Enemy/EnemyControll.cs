@@ -48,7 +48,7 @@ public class EnemyControll : MonoBehaviour
         life -= damage;
         if (life <= 0)
         {
-            text.GetComponent<PunctuationControll>().punt += 1;
+            text.GetComponent<PunctuationControll>().ponts += 1;
             Destroy(gameObject);
         }
     }

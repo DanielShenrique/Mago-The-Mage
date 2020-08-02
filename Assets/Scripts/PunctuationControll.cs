@@ -5,17 +5,15 @@ using UnityEngine.UI;
 
 public class PunctuationControll : MonoBehaviour
 {
-    public int punt;
-
+    public int ponts;
     public Text text;
-
     void Start()
     {
-        punt = 0;
+        ponts = 0;
     }
-
     void Update()
     {
-        text.GetComponent<Text>().text = punt.ToString();
+        text.GetComponent<Text>().text = ponts.ToString();
+        PlayerPrefs.SetInt("Pontuation", ponts);
     }
 }

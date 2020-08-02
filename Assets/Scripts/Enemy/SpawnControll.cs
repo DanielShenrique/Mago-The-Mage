@@ -5,11 +5,8 @@ using UnityEngine;
 public class SpawnControll : MonoBehaviour
 {
     [SerializeField] private GameObject enemy;
-
     public Transform[] sPoint;
-
     private int currentRandom;
-
     private float nextSpawn;
     private float timeToNextSpawn;
 
@@ -41,7 +38,7 @@ public class SpawnControll : MonoBehaviour
             }
             else
             {
-                nextSpawn = 2f;
+                nextSpawn = 1.5f;
             }
         }
 

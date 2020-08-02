@@ -46,14 +46,14 @@ TagManager:
   - name: Ground
     uniqueID: 3483526533
     locked: 0
+  - name: Decoration
+    uniqueID: 2642322199
+    locked: 0
   - name: Itens
     uniqueID: 3952440889
     locked: 0
   - name: Player and mobs
     uniqueID: 2140042457
-    locked: 0
-  - name: Houses
-    uniqueID: 2642322199
     locked: 0
   - name: UI
     uniqueID: 1771401917

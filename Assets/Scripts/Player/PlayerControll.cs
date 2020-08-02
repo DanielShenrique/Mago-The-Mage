@@ -19,6 +19,7 @@ public class PlayerControll : MonoBehaviour
 
     private Image hearth;
     private Text UITextlife;
+    [SerializeField]private GameObject endGame;
 
     private void Awake()
     {
@@ -83,11 +84,11 @@ public class PlayerControll : MonoBehaviour
             hearth.fillAmount = life;
         }
 
-
         if (life <= 0)
         {
             UITextlife.enabled = false;
             Time.timeScale = 0;
+            endGame.SetActive(true);  
             Destroy(gameObject);
         }
     }
